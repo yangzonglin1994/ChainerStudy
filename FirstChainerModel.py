@@ -15,5 +15,5 @@ class MyChain(Chain):  # Python可以多继承，例如class MyClass(Class1, Cla
             self.l2 = L.Linear(3, 2)
 
     def __call__(self, X):
-        H = self.l1(X)  # 不需要传入self
+        H = self.l1(X)  # 除了调用父类方法，其他都不需要传入self
         return self.l2(H)
