@@ -1,7 +1,5 @@
-import numpy as np
-from chainer import Chain
-import chainer.functions as F
 import chainer.links as L
+from chainer import Chain
 
 
 class MyChain(Chain):  # Python可以多继承，例如class MyClass(Class1, Class2)
