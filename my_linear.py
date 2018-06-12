@@ -37,6 +37,7 @@ class MyLinearFunction(Function):
         pass
 
 
+# 参数和返回值皆为Variable
 def my_linear(A, W, b):
     return MyLinearFunction()(A, W, b)
 
@@ -50,5 +51,6 @@ class MyLinear(Link):
                 (out_size, in_size))
             self.b = chainer.Parameter(0, (out_size, 1))
 
+    # 参数和返回值皆为Variable
     def __call__(self, A):
         return my_linear(A, self.W, self.b)

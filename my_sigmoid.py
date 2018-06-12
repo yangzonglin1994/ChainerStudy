@@ -3,15 +3,19 @@ from chainer import Function, Link
 
 
 class MySigmoidFunction(Function):
+    def __init__(self):
+        self.A = None
+
     def forward_cpu(self, inputs):
         Z, = inputs
         A = F.sigmoid(Z).data
+        self.A = A
         return A,
 
     def backward_cpu(self, inputs, grad_outputs):
         Z, = inputs
         dA, = grad_outputs
-        A = F.sigmoid(Z).data
+        A = self.A
         dZ = A * (1-A) * dA
         return dZ,
 
